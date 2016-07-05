@@ -17,24 +17,24 @@ Features
 Philisophy
 ----------
 
-* View doesn't have control flow. View cannot modify the data. View only knows how to map the data.
+* ViewController doesn't have control flow. ViewController cannot modify the data. ViewController only knows how to map the data.
 
     **Bad**
 
     ```swift
     viewModel.title
-        .map { $0 + "!" } // Bad: View should not modify the data
+        .map { $0 + "!" } // Bad: ViewController should not modify the data
         .bindTo(self.titleLabel)
     ```
 
     **Good**
-    
+
     ```swift
     viewModel.title
         .bindTo(self.titleLabel)
     ```
 
-* View doesn't know what ViewModel does. View can only communicate to ViewModel about what View did.
+* ViewController doesn't know what ViewModel does. ViewController can only communicate to ViewModel about what View did.
 
     **Bad**
 
@@ -43,7 +43,7 @@ Philisophy
     ```
 
     **Good**
-    
+
     ```swift
     self.loginButton.rx_tap
         .bindTo(viewModel.loginButton)
@@ -57,7 +57,7 @@ Philisophy
 * Model is hidden by ViewModel. ViewModel only exposes the minimum data so that View can render.
 
     **Bad**
-    
+
     ```swift
     class ProductViewModel {
         let product: Driver<Product> // Bad: ViewModel should hide Model
@@ -65,7 +65,7 @@ Philisophy
     ```
 
     **Good**
-    
+
     ```swift
     class ProductViewModel {
         let productName: Driver<String>

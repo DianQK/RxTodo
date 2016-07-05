@@ -55,7 +55,6 @@ final class TaskListViewController: BaseViewController {
     }
 
     override func setupConstraints() {
-        super.setupConstraints()
         self.tableView.snp_makeConstraints { make in
             make.edges.equalTo(0)
         }
